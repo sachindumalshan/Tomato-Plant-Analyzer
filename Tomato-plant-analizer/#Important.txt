@@ -1,0 +1,4 @@
+I removed,
+	- yolov3.weights and yolov3-tiny.weights 
+	
+	because, those are too much big sizes to upload
