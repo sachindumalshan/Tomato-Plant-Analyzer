@@ -42,11 +42,11 @@ function Sidebar({ color, image, routes }) {
             className="simple-text logo-mini mx-1"
           >
             <div className="logo-img">
-              <img src={require("assets/img/reactlogo.png")} alt="..." />
+              <img src={require("assets/img/tomatologo.png")} alt="..." />
             </div>
           </a>
-          <a className="simple-text" href="http://www.creative-tim.com">
-            Creative Tim
+          <a className="simple-text" href="../../../public/index.html">
+            Tomato Analyzer
           </a>
         </div>
         <Nav>
@@ -61,11 +61,7 @@ function Sidebar({ color, image, routes }) {
                   }
                   key={key}
                 >
-                  <NavLink
-                    to={prop.layout + prop.path}
-                    className="nav-link"
-                    activeClassName="active"
-                  >
+                  <NavLink to={prop.layout + prop.path} className="nav-link" activeClassName="active">
                     <i className={prop.icon} />
                     <p>{prop.name}</p>
                   </NavLink>
