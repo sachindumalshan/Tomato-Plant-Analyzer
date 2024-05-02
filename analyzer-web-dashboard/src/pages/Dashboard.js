@@ -13,10 +13,7 @@ function Dashboard() {
                         Settings
                     </Col>
                     <Col lg="10">
-                        <Row>
-                            <div className="h-50">sfs</div>
-                        </Row>
-                        <Row>
+                        <Row className="my-4">
                             <Col lg="3" sm="6">
                                 <Card className="card-stats">
                                     <Card.Body>
@@ -27,18 +24,16 @@ function Dashboard() {
                                                 </div>
                                             </Col>
                                             <Col xs="7">
-                                                <div className="numbers">
-                                                    <p className="card-category">Temperature</p>
+                                                <div className="state-sensor">
+                                                    <span className="state-title">Temperature</span>
                                                     <Card.Title as="h4">37.5 °C</Card.Title>
                                                 </div>
                                             </Col>
                                         </Row>
                                     </Card.Body>
                                     <Card.Footer>
-                                        <hr></hr>
                                         <div className="stats">
-                                            <i className="far fa-clock mr-1"></i>
-                                            Updated now
+                                            <i className="bi bi-arrow-clockwise "></i> Updated now
                                         </div>
                                     </Card.Footer>
                                 </Card>
@@ -53,18 +48,16 @@ function Dashboard() {
                                                 </div>
                                             </Col>
                                             <Col xs="7">
-                                                <div className="numbers">
-                                                <p className="card-category">Humidity</p>
+                                                <div className="state-sensor">
+                                                <span className="state-title">Humidity</span>
                                                     <Card.Title as="h4">87.8</Card.Title>
                                                 </div>
                                             </Col>
                                         </Row>
                                     </Card.Body>
                                     <Card.Footer>
-                                        <hr></hr>
                                         <div className="stats">
-                                            <i className="far fa-clock mr-1"></i>
-                                            Updated now
+                                            <i className="bi bi-arrow-clockwise "></i> Updated now
                                         </div>
                                     </Card.Footer>
                                 </Card>
@@ -79,18 +72,16 @@ function Dashboard() {
                                                 </div>
                                             </Col>
                                             <Col xs="7">
-                                                <div className="numbers">
-                                                <p className="card-category">Water Pump</p>
+                                                <div className="state-sensor">
+                                                <span className="state-title">Water Pump</span>
                                                     <Card.Title as="h4">ON/OFF</Card.Title>
                                                 </div>
                                             </Col>
                                         </Row>
                                     </Card.Body>
                                     <Card.Footer>
-                                        <hr></hr>
                                         <div className="stats">
-                                            <i className="fas fa-history mr-1"></i>
-                                            In the last hour
+                                            <i class="bi bi-clock"></i> In the last hour
                                         </div>
                                     </Card.Footer>
                                 </Card>
@@ -105,54 +96,52 @@ function Dashboard() {
                                                 </div>
                                             </Col>
                                             <Col xs="7">
-                                                <div className="numbers">
-                                                <p className="card-category">Lumosense</p>
+                                                <div className="state-sensor">
+                                                    <span className="state-title">Lumosense</span>
                                                     <Card.Title as="h4">20.5</Card.Title>
                                                 </div>
                                             </Col>
                                         </Row>
                                     </Card.Body>
                                     <Card.Footer>
-                                        <hr></hr>
                                         <div className="stats">
-                                            <i className="far fa-clock mr-1"></i>
-                                            Updated hour ago
+                                            <i className="bi bi-arrow-clockwise "></i> Updated hour ago
                                         </div>
                                     </Card.Footer>
                                 </Card>
                             </Col>
                         </Row>
 
-                        <Row>
+                        <Row className="mb-3">
                             <Col md="4">
                                 <Card>
                                     <Card.Header>
                                         <Card.Title as="h4"><i className="fas fa-seedling text-success mr-2"></i> Greenery Picker</Card.Title>
                                     </Card.Header>
                                     <Card.Body>
-                                        <Row className="justify-content-between mx-1 my-3">
-                                            <Button Style={"width:100px;height:100px"} className="btn-fill pull-right" type="submit" variant="success" >P-1</Button>
-                                            <Button Style={"width:100px;height:100px"} className="btn-fill pull-right" type="submit" variant="success" >P-2</Button>
-                                            <Button Style={"width:100px;height:100px"} className="btn-fill pull-right" type="submit" variant="success" >P-3</Button>
-                                            <Button Style={"width:100px;height:100px"} className="btn-fill pull-right" type="submit" variant="success" >P-4</Button>
+                                        <Row className="justify-content-between mx-1 my-2">
+                                            <Button className="plant-button" variant="success">P - 1</Button>{' '}
+                                            <Button className="plant-button" variant="success">P - 2</Button>{' '}
+                                            <Button className="plant-button" variant="success">P - 3</Button>{' '}
+                                            <Button className="plant-button" variant="success">P - 4</Button>{' '}
                                         </Row>
                                         <Row className="justify-content-between mx-1 my-3">
-                                            <Button Style={"width:100px;height:100px"} className="btn-fill pull-right" type="submit" variant="success" >P-5</Button>
-                                            <Button Style={"width:100px;height:100px"} className="btn-fill pull-right" type="submit" variant="success" >P-6</Button>
-                                            <Button Style={"width:100px;height:100px"} className="btn-fill pull-right" type="submit" variant="success" >P-7</Button>
-                                            <Button Style={"width:100px;height:100px"} className="btn-fill pull-right" type="submit" variant="success" >P-8</Button>
+                                            <Button className="plant-button" variant="success">P - 5</Button>{' '}
+                                            <Button className="plant-button" variant="success">P - 6</Button>{' '}
+                                            <Button className="plant-button" variant="success">P - 7</Button>{' '}
+                                            <Button className="plant-button" variant="success">P - 8</Button>{' '}
                                         </Row>
                                         <Row className="justify-content-between mx-1 my-3">
-                                            <Button Style={"width:100px;height:100px"} className="btn-fill pull-right" type="submit" variant="success" >P-9</Button>
-                                            <Button Style={"width:100px;height:100px"} className="btn-fill pull-right" type="submit" variant="success" >P-10</Button>
-                                            <Button Style={"width:100px;height:100px"} className="btn-fill pull-right" type="submit" variant="success" >P-11</Button>
-                                            <Button Style={"width:100px;height:100px"} className="btn-fill pull-right" type="submit" variant="success" >P-12</Button>
+                                            <Button className="plant-button" variant="success">P - 9</Button>{' '}
+                                            <Button className="plant-button" variant="success">P - 10</Button>{' '}
+                                            <Button className="plant-button" variant="success">P - 11</Button>{' '}
+                                            <Button className="plant-button" variant="success">P - 12</Button>{' '}
                                         </Row>
-                                        <Row className="justify-content-between mx-1 my-3">
-                                            <Button Style={"width:100px;height:100px"} className="btn-fill pull-right" type="submit" variant="success" >P-13</Button>
-                                            <Button Style={"width:100px;height:100px"} className="btn-fill pull-right" type="submit" variant="success" >P-14</Button>
-                                            <Button Style={"width:100px;height:100px"} className="btn-fill pull-right" type="submit" variant="success" >P-15</Button>
-                                            <Button Style={"width:100px;height:100px"} className="btn-fill pull-right" type="submit" variant="success" >P-16</Button>
+                                        <Row className="justify-content-between mx-1 my-2">
+                                            <Button className="plant-button" variant="success">P - 13</Button>{' '}
+                                            <Button className="plant-button" variant="success">P - 14</Button>{' '}
+                                            <Button className="plant-button" variant="success">P - 15</Button>{' '}
+                                            <Button className="plant-button" variant="success">P - 16</Button>{' '}
                                         </Row>
                                     </Card.Body>
                                 </Card>
@@ -163,62 +152,62 @@ function Dashboard() {
                                         <Card.Title as="h4"><i className="fas fa-laptop-medical text-danger mr-3"></i> Plant Health</Card.Title>
                                     </Card.Header>
                                     <Card.Body>
-                                        <Row className="my-3">
+                                        <Row>
                                             <Col md="6">
-                                                <Table className="table-hover table-bordered text-center">
-                                                    <thead className="thead-light">
+                                                <Table className="table-hover table-bordered text-center mt-2">
+                                                    <thead>
                                                     <tr>
-                                                        <th className="border-0">Plant ID</th>
-                                                        <th className="border-0">Status</th>
+                                                        <th className="bg-light">Plant ID</th>
+                                                        <th className="bg-light">Status</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
                                                     <tr>
                                                         <td>P - 01</td>
-                                                        <td> <span className="bg-success rounded py-1 px-2 text-white ">optimal</span> </td>
+                                                        <td><i class="bi bi-square-fill text-success"></i></td>
                                                     </tr>
                                                     <tr>
                                                         <td>P - 02</td>
-                                                        <td> <span className="bg-success rounded py-1 px-2 text-white ">optimal</span> </td>
+                                                        <td><i className="bi bi-square-fill text-success"></i></td>
                                                     </tr>
                                                     <tr>
                                                         <td>P - 03</td>
-                                                        <td> <span className="bg-success rounded py-1 px-2 text-white ">optimal</span> </td>
+                                                        <td><i className="bi bi-square-fill text-info"></i></td>
                                                     </tr>
                                                     <tr>
                                                         <td>P - 04</td>
-                                                        <td> <span className="bg-danger rounded py-1 px-2 text-white ">Critical</span> </td>
+                                                        <td><i className="bi bi-square-fill text-danger"></i></td>
                                                     </tr>
                                                     <tr>
                                                         <td>P - 05</td>
-                                                        <td> <span className="bg-success rounded py-1 px-2 text-white ">optimal</span> </td>
+                                                        <td><i className="bi bi-square-fill text-success"></i></td>
                                                     </tr>
                                                     <tr>
                                                         <td>P - 06</td>
-                                                        <td> <span className="bg-success rounded py-1 px-2 text-white ">optimal</span> </td>
+                                                        <td><i className="bi bi-square-fill text-success"></i></td>
                                                     </tr>
                                                     <tr>
                                                         <td>P - 07</td>
-                                                        <td> <span className="bg-warning rounded py-1 px-2 text-white ">Stressed</span> </td>
+                                                        <td><i className="bi bi-square-fill text-warning"></i></td>
                                                     </tr>
                                                     <tr>
                                                         <td>P - 08</td>
-                                                        <td> <span className="bg-success rounded py-1 px-2 text-white ">optimal</span> </td>
+                                                        <td><i className="bi bi-square-fill text-success"></i></td>
                                                     </tr>
                                                     </tbody>
                                                 </Table>
                                             </Col>
                                             <Col md="6">
-                                                <Table className="table-hover table-bordered text-center">
-                                                    <thead className="thead-light">
+                                                <Table className="table-hover table-bordered text-center mt-2">
+                                                    <thead>
                                                     <tr>
-                                                        <th className="border-0">Plant ID</th>
-                                                        <th className="border-0">Status</th>
+                                                        <th className="bg-light">Plant ID</th>
+                                                        <th className="bg-light">Status</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
                                                     <tr>
-                                                        <td>P - 09</td>
+                                                        <td >P - 09</td>
                                                         <td> <span className="bg-success rounded py-1 px-2 text-white ">optimal</span> </td>
                                                     </tr>
                                                     <tr>
@@ -252,11 +241,17 @@ function Dashboard() {
                                                     </tbody>
                                                 </Table>
                                             </Col>
+                                            <Row>
+                                                <i className="bi bi-square-fill text-success"> Optimal </i><i className="bi bi-square-fill text-info"></i> Healthy |
+                                                <i className="bi bi-square-fill text-warning"></i> Stressed |
+                                                <i className="bi bi-square-fill text-danger"></i> Critical
+                                            </Row>
                                         </Row>
                                     </Card.Body>
                                 </Card>
                             </Col>
                         </Row>
+
                         <Row>
                             <Col md="12">
                                 <Card>
