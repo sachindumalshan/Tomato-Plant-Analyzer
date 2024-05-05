@@ -5,46 +5,32 @@ import Tomato from "../../assets/img/tomatologo.png";
 function SideBar() {
     return (
         <>
-            <div className="row flex-nowrap fixed-top">
-                <Nav className="flex-column align-items-center align-items-sm-start text-white min-vh-100">
+            <div className="logo mb-3">
+                <a className="navbar-brand d-flex align-items-center text-white text-decoration-none ms-1 mt-3" href="#">
+                    <img src={Tomato} Style={"width:20%;height:auto;"} alt=""/> <span className="h4">Tomato Analyzer</span>
+                </a>
+            </div>
 
-                    <Nav.Link href="/" className="d-flex align-items-center mb-md-0 me-md-auto text-white text-decoration-none">
-                        <span className="fs-5 d-none d-sm-inline pt-3">
-                            <img src={Tomato} Style={"width:10%;height:auto;"} alt=""/>
-                            Tomato Analyzer</span>
+            <hr></hr>
+
+            <div className="">
+                <Nav defaultActiveKey="/home" className="flex-column">
+                    <Nav.Link href="/home" className="text-white menu">
+                        <i className="bi bi-speedometer2 fs-4 me-3"></i>
+                        <span className="fs-6">Dashboard</span>
                     </Nav.Link>
-                    <hr/>
-                    <Nav className="nav-pills flex-column align-items-center align-items-sm-start ms-2">
-
-                        <Nav.Item>
-                            <Nav.Link href="index1.html" className="text-white d-flex align-items-center py-2 ">
-                                <i className="bi bi-speedometer2 fs-4 me-3"></i>
-                                <span className="fs-5 d-none d-sm-inline">Dashboard</span>
-                            </Nav.Link>
-                        </Nav.Item>
-
-                        <Nav.Item>
-                            <Nav.Link href="index2.html" className="text-white d-flex align-items-center py-2">
-                                <i className="bi bi-tree fs-4 me-2"></i>
-                                <span className="fs-5 d-none d-sm-inline">Plant Detail</span>
-                            </Nav.Link>
-                        </Nav.Item>
-
-                        <Nav.Item>
-                            <Nav.Link href="index3.html" className="text-white d-flex align-items-center py-2">
-                                <i className="bi bi-people fs-4 me-3"></i>
-                                <span className="fs-5 d-none d-sm-inline">Users</span>
-                            </Nav.Link>
-                        </Nav.Item>
-
-                        <Nav.Item>
-                            <Nav.Link href="index4.html" className="text-white d-flex align-items-center py-2">
-                                <i className="bi bi-folder2-open fs-4 me-3"></i>
-                                <span className="fs-5 d-none d-sm-inline">About Us</span>
-                            </Nav.Link>
-                        </Nav.Item>
-
-                    </Nav>
+                    <Nav.Link eventKey="link-1" className="text-white menu">
+                        <i className="bi bi-tree fs-4 me-3"></i>
+                        <span className="fs-6">Plant Detail</span>
+                    </Nav.Link>
+                    <Nav.Link eventKey="link-2" className="text-white menu">
+                        <i className="bi bi-people fs-4 me-3"></i>
+                        <span className="fs-6">Users</span>
+                    </Nav.Link>
+                    <Nav.Link eventKey="link-3" className="text-white menu">
+                        <i className="bi bi-folder2-open fs-4 me-3"></i>
+                        <span className="fs-6">About Us</span>
+                    </Nav.Link>
                 </Nav>
             </div>
         </>
