@@ -13,6 +13,7 @@ import StateIndicator from "../../components/StateIndicator/StateIndicator";
 import SideBar from "../../components/SideBar/SideBar";
 import PlantPicker from "../../components/PlantPicker/PlantPicker";
 import HealthIndicator from "../../components/HealthIndicator/HealthIndicator";
+import TopNavigation from "../TopNavigation/TopNavigation";
 
 export {
     React,
@@ -35,5 +36,6 @@ export {
     StateIndicator,
     SideBar,
     PlantPicker,
-    HealthIndicator
+    HealthIndicator,
+    TopNavigation
 };

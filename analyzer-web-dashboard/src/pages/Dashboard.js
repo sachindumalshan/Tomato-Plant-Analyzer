@@ -1,4 +1,27 @@
-import { React, Badge, Button, Card, Navbar, Nav, Table, Container, Row, Col, Form, OverlayTrigger, Tooltip, PlantAreaGrowth, PlantHeightGrowth, PlantColorLevel, PlantSoilMoistureLevel, StateIndicator, SideBar, PlantPicker, HealthIndicator } from '../components/Imports/imports';
+import {
+    React,
+    Badge,
+    Button,
+    Card,
+    Navbar,
+    Nav,
+    Table,
+    Container,
+    Row,
+    Col,
+    Form,
+    OverlayTrigger,
+    Tooltip,
+    PlantAreaGrowth,
+    PlantHeightGrowth,
+    PlantColorLevel,
+    PlantSoilMoistureLevel,
+    StateIndicator,
+    SideBar,
+    PlantPicker,
+    HealthIndicator,
+    TopNavigation
+} from '../components/Imports/imports';
 
 function Dashboard() {
     return (
@@ -11,7 +34,11 @@ function Dashboard() {
                         </Row>
                     </Col>
                     <Col lg="10">
-                        <Row className="my-5">
+                        <Row>
+                            <TopNavigation/>
+                            <hr className="mt-2"/>
+                        </Row>
+                        <Row className="my-2">
                             <StateIndicator/>
                         </Row>
                         <Row className="my-5">
