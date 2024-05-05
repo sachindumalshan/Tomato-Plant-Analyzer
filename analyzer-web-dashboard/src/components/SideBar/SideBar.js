@@ -37,6 +37,13 @@ function SideBar() {
                             </Nav.Link>
                         </Nav.Item>
 
+                        <Nav.Item>
+                            <Nav.Link href="index4.html" className="text-white d-flex align-items-center py-2">
+                                <i className="bi bi-folder2-open fs-4 me-3"></i>
+                                <span className="fs-5 d-none d-sm-inline">About Us</span>
+                            </Nav.Link>
+                        </Nav.Item>
+
                     </Nav>
                 </Nav>
             </div>
