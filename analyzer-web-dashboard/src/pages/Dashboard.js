@@ -147,7 +147,7 @@ function Dashboard() {
                                 </Card>
                             </Col>
                             <Col md="8">
-                                <Card>
+                                <Card Style={"height:551px;"} >
                                     <Card.Header>
                                         <Card.Title as="h4"><i className="fas fa-laptop-medical text-danger mr-3"></i> Plant Health</Card.Title>
                                     </Card.Header>
@@ -241,11 +241,14 @@ function Dashboard() {
                                                     </tbody>
                                                 </Table>
                                             </Col>
-                                            <Row>
-                                                <i className="bi bi-square-fill text-success"> Optimal </i><i className="bi bi-square-fill text-info"></i> Healthy |
-                                                <i className="bi bi-square-fill text-warning"></i> Stressed |
-                                                <i className="bi bi-square-fill text-danger"></i> Critical
-                                            </Row>
+                                        </Row>
+                                        <Row>
+                                            <Col className="md-6 pt-3">
+                                                <i className="bi bi-square-fill text-success"></i> Optimal
+                                                <i className="bi bi-square-fill text-info mx-2"></i> Healthy
+                                                <i className="bi bi-square-fill text-warning mx-2"></i> Stressed
+                                                <i className="bi bi-square-fill text-danger mx-2"></i> Critical
+                                            </Col>
                                         </Row>
                                     </Card.Body>
                                 </Card>
