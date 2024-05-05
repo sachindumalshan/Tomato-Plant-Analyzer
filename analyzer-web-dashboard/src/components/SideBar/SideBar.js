@@ -29,7 +29,7 @@ function SideBar() {
                     </Nav.Link>
                     <Nav.Link eventKey="link-3" className="text-white menu">
                         <i className="bi bi-folder2-open fs-4 me-3"></i>
-                        <span className="fs-6">About Us</span>
+                        <span className="fs-6">About Project</span>
                     </Nav.Link>
                 </Nav>
             </div>
