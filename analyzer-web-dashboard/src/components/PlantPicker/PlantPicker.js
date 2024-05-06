@@ -7,7 +7,7 @@ function PlantPicker() {
         <>
             <Card>
                 <Card.Header>
-                    <Card.Title as="h4"><i className="fas fa-seedling text-success mr-2"></i> Greenery Picker</Card.Title>
+                    <Card.Title as="h4"><i className="fas fa-seedling text-success mr-2"></i> Plant Selector</Card.Title>
                 </Card.Header>
                 <Card.Body>
                     <Row className="justify-content-between mx-1 my-2">
