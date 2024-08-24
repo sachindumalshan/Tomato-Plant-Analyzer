@@ -1,78 +1,102 @@
+// server.js
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const app = express();
-const port = 3004;
 
-// Middleware to parse JSON request bodies
+// Middleware
+app.use(cors());
 app.use(express.json());
 
-// Connect to MongoDB database
-mongoose.connect('mongodb://localhost:27017/plant',{
+// Connect to MongoDB
+mongoose.connect('mongodb+srv://sachindumalshan:Malshan123@iotcluster.6rmyakh.mongodb.net/sensor_data?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-})
-.then(() => {
-  console.log("Connected to MongoDB database");
-})
-.catch((error) => {
-  console.error("Error connecting to MongoDB database:", error);
 });
 
-// Create a Mongoose model for Plant
-const PlantData = mongoose.model('PlantData',{
-  Seller_Id: String,
-  prod_Date: Date,
-  prod_time: String,
-});
+const db = mongoose.connection;
+db.on('error', (err) => console.error('Connection error:', err));
+db.once('open', () => console.log('Connected to MongoDB'));
 
-// Route for adding plant data
-app.post('/addPlantData', async (req, res) => {
+// Define schemas and models with explicit collection names
+// Assuming the time series collections have a time field named 'timestamp'
+const heightSchema = new mongoose.Schema({
+  line: String,
+  timestamp: Date,
+});
+const Height = mongoose.model('Height', heightSchema, 'plant_height');
+
+const areaSchema = new mongoose.Schema({
+  line: String,
+  timestamp: Date,
+});
+const Area = mongoose.model('Area', areaSchema, 'plant_area');
+
+const soilSchema = new mongoose.Schema({
+  line: String,
+  timestamp: Date,
+});
+const Soil = mongoose.model('Soil', soilSchema, 'plant_soil');
+
+const tempSchema = new mongoose.Schema({
+  line: String,
+  timestamp: Date,
+});
+const Temp = mongoose.model('Temp', tempSchema, 'plant_temp');
+
+const imagesSchema = new mongoose.Schema({
+  filename: String,
+  image_data: String,
+  timestamp: Date,
+});
+const Images = mongoose.model('Images', imagesSchema, 'plant_images');
+
+// Define routes
+app.get('/api/height', async (req, res) => {
   try {
-    // Extract data from request body
-    const { Seller_Id, prod_Date, prod_time } = req.body;
-
-    // Create a new ChainData document with provided data
-    const newPlantData = new PlantData({
-      Seller_Id,
-      prod_Date,
-      prod_time,
-    });
-
-    // Save the document to the database
-    await newPlantData.save();
-
-    // Send success response
-    res.status(201).json({
-      message: "Plant data added successfully",
-      plantID: newPlantData._id,
-    });
+    const heights = await Height.find().sort({ timestamp: -1 });
+    res.json(heights);
   } catch (error) {
-    // Handle errors
-    console.error("Error adding plant data:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).send('Error retrieving height data');
   }
 });
 
-
-// Route for fetching plant data
-app.get('/getPlantData', async (req, res) => {
+app.get('/api/area', async (req, res) => {
   try {
-    // Fetch all PlantData documents from the database
-    const plantData = await PlantData.find();
-
-    // Send success response with fetched data
-    res.status(200).json({
-      message: "Plant data fetched successfully",
-      plantData,
-    });
+    const areas = await Area.find().sort({ timestamp: -1 });
+    res.json(areas);
   } catch (error) {
-    // Handle errors
-    console.error("Error fetching plant data:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).send('Error retrieving area data');
   }
 });
 
-// Start the server
-app.listen(port, () => {
-  console.log(`Server listening at http://localhost:${port}`);
+app.get('/api/soil', async (req, res) => {
+  try {
+    const soils = await Soil.find().sort({ timestamp: -1 });
+    res.json(soils);
+  } catch (error) {
+    res.status(500).send('Error retrieving soil data');
+  }
 });
+
+app.get('/api/temp', async (req, res) => {
+  try {
+    const temps = await Temp.find().sort({ timestamp: -1 });
+    res.json(temps);
+  } catch (error) {
+    res.status(500).send('Error retrieving temperature data');
+  }
+});
+
+app.get('/api/images', async (req, res) => {
+  try {
+    const images = await Images.find().sort({ timestamp: -1 });
+    res.json(images);
+  } catch (error) {
+    res.status(500).send('Error retrieving images');
+  }
+});
+
+// Start server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
