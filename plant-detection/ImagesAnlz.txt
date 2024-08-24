@@ -1,0 +1,3 @@
+['0a86ddc0-4950-4efc-9260-0f16d4db046b___RS_HL 0469_180deg.JPG', '0b330273-890c-4995-af72-cba070fc0061___GH_HL Leaf 312_flipTB.JPG', '0f1fb081-c715-414e-aa64-2c398ba6c320___RS_Erly.B 6382.JPG', '22189ee2-ca56-4e88-901f-7ab7d1c465bb___YLCV_GCREC 5415.JPG', 'Early_blight_tomato.JPG', 'Healthy-tomato.jpg', 'pm5_change_180.jpg', 'Powdery_mildew_tomato.JPG', 'Yellow_leaf_curl_virus_tomato.JPG']
+['Early Blight', 'Early Blight', 'Healthy', 'Yellow leaf curl virus', 'Healthy', 'Healthy', 'Powder Mildew', 'Powder Mildew', 'Yellow leaf curl virus']
+['99.99920129776001', '100.0', '99.99902248382568', '99.99803304672241', '99.9416708946228', '80.92892169952393', '100.0', '100.0', '99.99978542327881']
