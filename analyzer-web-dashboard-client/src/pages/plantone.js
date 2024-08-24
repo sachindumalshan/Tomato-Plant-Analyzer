@@ -85,6 +85,8 @@ const PlantOne = () => {
     );
   }
 
+  const extractedHeights = [];
+
   return (
     <Container>
       <h2>Sensor Data for Plant One</h2>
@@ -99,17 +101,21 @@ const PlantOne = () => {
           </tr>
         </thead>
         <tbody>
-          {heightData.map((item) => (
-            <tr key={item._id}>
-              <td>{new Date(item.timestamp).toLocaleString()}</td>
-              <td>{item._id}</td>
-              <td>{item.data}</td>
-            </tr>
-          ))}
-        </tbody>
+          {heightData.map((item) => {
+            const heightValue = parseFloat(item.data.split('Height:')[1]);
+            extractedHeights.push(heightValue);
+            console.log(extractedHeights);
+              <tr key={item._id}>
+                <td>{new Date(item.timestamp).toLocaleString()}</td>
+                <td>{item._id}</td>
+                <td>{item.data}</td>
+              </tr>
+            ;
+          })}
+      </tbody>
       </Table>
 
-      <PlantHeightGrowth/>
+      <PlantHeightGrowth extractedHeights={extractedHeights} heightData={heightData}/>
 
       <h3>Plant Area</h3>
       <Table striped bordered hover>
