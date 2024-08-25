@@ -55,6 +55,9 @@ const PlantImages = ({ imagesData }) => {
                             <td>
                                 {dateOnly.trim()}
                             </td>
+                            <td>
+                                {item.filename}
+                            </td>
                         </tr>
                         );
                     })}
