@@ -52,10 +52,10 @@ function Dashboard() {
                         </Row>
                         <Row className="mt-5 mb-4">
                             <Col md="6">
-                                <PlantAreaGrowth/>
+                                {/* <PlantAreaGrowth/> */}
                             </Col>
                             <Col md="6">
-                                <PlantHeightGrowth/>
+                                {/* <PlantHeightGrowth/> */}
                             </Col>
                         </Row>
                         <Row className="my-4">
@@ -63,7 +63,7 @@ function Dashboard() {
                                 <PlantColorLevel/>
                             </Col>
                             <Col md="6">
-                                <PlantSoilMoistureLevel/>
+                                {/* <PlantSoilMoistureLevel/> */}
                             </Col>
                         </Row>
                     </Col>

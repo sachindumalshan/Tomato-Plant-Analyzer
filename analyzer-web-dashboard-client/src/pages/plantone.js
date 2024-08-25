@@ -20,7 +20,8 @@ import {
     SideBar,
     PlantPicker,
     HealthIndicator,
-    TopNavigation
+    TopNavigation,
+    PlantImages
 } from '../components/Imports/imports';
 
 import { useState, useEffect } from 'react';
@@ -86,120 +87,163 @@ const PlantOne = () => {
   }
 
   const extractedHeights = [];
+  const extractedAreas = [];
+  const extractedStates = [];
+  const extractedSoils = [];
 
   return (
-    <Container>
-      <h2>Sensor Data for Plant One</h2>
-      
-      <h3>Plant Height</h3>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Timestamp</th>
-            <th>ID</th>
-            <th>Data</th>
-          </tr>
-        </thead>
-        <tbody>
-          {heightData.map((item) => {
-            const heightValue = parseFloat(item.data.split('Height:')[1]);
-            extractedHeights.push(heightValue);
-            console.log(extractedHeights);
-              <tr key={item._id}>
-                <td>{new Date(item.timestamp).toLocaleString()}</td>
-                <td>{item._id}</td>
-                <td>{item.data}</td>
-              </tr>
-            ;
-          })}
-      </tbody>
-      </Table>
+    <>
+        <Container fluid>
+            <Row>
+                <Col lg="2" className="bg-dark text-white">
+                    <Row>
+                        <SideBar/>
+                    </Row>
+                </Col>
+                <Col lg="10">
+                    <Row>
+                        <TopNavigation/>
+                        <hr className="mt-2"/>
+                    </Row>                    
+                    <Row className="my-4">
+                        <Col md="1"></Col>
+                        <Col md="10">
+                        <h2>Sensor Data for Plant One</h2>
 
-      <PlantHeightGrowth extractedHeights={extractedHeights} heightData={heightData}/>
+                        <br></br>                    
+                        <Table striped bordered hover>
+                          <thead>
+                            {/* <tr>
+                              <th>Timestamp</th>
+                              <th>ID</th>
+                              <th>Data</th>
+                            </tr> */}
+                          </thead>
+                          <tbody>
+                            {heightData.map((item) => {
+                              const heightValue = parseFloat(item.data.split('Height:')[1]);
+                              extractedHeights.push(heightValue); // Collect the height values
+                              // return (
+                              //   <tr key={item._id}>
+                              //     <td>{new Date(item.timestamp).toLocaleString()}</td>
+                              //     <td>{item._id}</td>
+                              //     <td>{item.data}</td>
+                              //   </tr>
+                              // );
+                            })}
+                        </tbody>
+                        </Table>
 
-      <h3>Plant Area</h3>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Timestamp</th>
-            <th>ID</th>
-            <th>Data</th>
-          </tr>
-        </thead>
-        <tbody>
-          {areaData.map((item) => (
-            <tr key={item._id}>
-              <td>{new Date(item.timestamp).toLocaleString()}</td>
-              <td>{item._id}</td>
-              <td>{item.data}</td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
+                        <PlantHeightGrowth extractedHeights={extractedHeights} heightData={heightData}/>
 
-      <PlantAreaGrowth/>
+                        <br></br>                    
+                        <Table striped bordered hover>
+                          <thead>
+                            {/* <tr>
+                              <th>Timestamp</th>
+                              <th>ID</th>
+                              <th>Data</th>
+                            </tr> */}
+                          </thead>
+                          <tbody>
+                            {areaData.map((item) => {
+                              const areaValue = parseFloat(item.data.split('Area:')[1]);
+                              extractedAreas.push(areaValue); // Collect the height values
+                              // return (
+                              //   <tr key={item._id}>
+                              //     <td>{new Date(item.timestamp).toLocaleString()}</td>
+                              //     <td>{item._id}</td>
+                              //     <td>{item.data}</td>
+                              //   </tr>
+                              // );
+                            })}
+                        </tbody>
+                        </Table>
 
-      {/* <h3>Plant Status</h3>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Timestamp</th>
-            <th>ID</th>
-            <th>Data</th>
-          </tr>
-        </thead>
-        <tbody>
-          {areaData.map((item) => (
-            <tr key={item._id}>
-              <td>{new Date(item.timestamp).toLocaleString()}</td>
-              <td>{item._id}</td>
-              <td>{item.data}</td>
-            </tr>
-          ))}
-        </tbody>
-      </Table> */}
+                        <PlantAreaGrowth extractedAreas={extractedAreas} areaData={areaData}/>
 
-      <h3>Soil Moisture</h3>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Timestamp</th>
-            <th>ID</th>
-            <th>Data</th>
-          </tr>
-        </thead>
-        <tbody>
-          {soilData.map((item) => (
-            <tr key={item._id}>
-              <td>{new Date(item.timestamp).toLocaleString()}</td>
-              <td>{item._id}</td>
-              <td>{item.data}</td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
+                        {/* <br></br>                    
+                        <Table striped bordered hover>
+                          <thead>
+                            <tr>
+                              <th>Timestamp</th>
+                              <th>ID</th>
+                              <th>Data</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {areaData.map((item) => {
+                              const stateValue = parseFloat(item.data.split('State:')[1]);
+                              extractedStates.push(stateValue); // Collect the height values
+                              return (
+                                <tr key={item._id}>
+                                  <td>{new Date(item.timestamp).toLocaleString()}</td>
+                                  <td>{item._id}</td>
+                                  <td>{item.data}</td>
+                                </tr>
+                              );
+                            })}
+                        </tbody>
+                        </Table>
 
-      <h3>Plant Images</h3>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Filename</th>
-            <th>Image</th>
-            <th>Timestamp</th>
-          </tr>
-        </thead>
-        <tbody>
-          {imagesData.map((item) => (
-            <tr key={item._id}>
-              <td>{item.filename}</td>
-              <td><img src={`data:image/png;base64,${item.image_data}`} alt="Plant" style={{ width: '100px' }} /></td>
-              <td>{new Date(item.timestamp).toLocaleString()}</td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-    </Container>
-  );
+                        <PlantState extractedStates={extractedStates} stateData={stateData}/> */}
+                        
+                        <br></br>                    
+                        <Table striped bordered hover>
+                          <thead>
+                            {/* <tr>
+                              <th>Timestamp</th>
+                              <th>ID</th>
+                              <th>Data</th>
+                            </tr> */}
+                          </thead>
+                          <tbody>
+                            {soilData.map((item) => {
+                              const soilValue = parseFloat(item.data.split('Soil:')[1]);
+                              extractedSoils.push(soilValue); // Collect the height values
+                              // return (
+                              //   <tr key={item._id}>
+                              //     <td>{new Date(item.timestamp).toLocaleString()}</td>
+                              //     <td>{item._id}</td>
+                              //     <td>{item.data}</td>
+                              //   </tr>
+                              // );
+                            })}
+                        </tbody>
+                        </Table>
+
+                        <PlantSoilMoistureLevel extractedSoils={extractedSoils} soilData={soilData}/>
+
+                        <br></br>        
+                        <Table striped bordered hover>
+                        <thead>
+                            {/* <tr>
+                              <th>Timestamp</th>
+                              <th>ID</th>
+                              <th>Data</th>
+                            </tr> */}
+                          </thead>
+                          <tbody>
+                            {/* {imagesData.map((item) => (
+                              <tr key={item._id}>
+                                <td>{item.filename}</td>
+                                <td><img src={`data:image/png;base64,${item.image_data}`} alt="Plant" style={{ width: '100px' }} /></td>
+                                <td>{new Date(item.timestamp).toLocaleString()}</td>
+                              </tr>
+                            ))} */}
+                          </tbody>
+                        </Table>
+
+                        <PlantImages imagesData={imagesData} />
+                        
+                        </Col>
+                        <Col md="1"></Col>                      
+                    </Row>
+                </Col>
+            </Row>
+        </Container>
+    </>
+);
 };
 
 export default PlantOne;

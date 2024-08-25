@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { Card } from 'react-bootstrap';
 import { Chart } from 'chart.js/auto';
 
-const PlantSoilMoistureLevel = ({ extractedSoils, soilData }) => {
+const Plantstate = ({ extractedStates, stateData }) => {
     const chartRef = useRef(null); // Reference to the canvas element
     const chartInstance = useRef(null); // Reference to the chart instance
 
@@ -13,10 +13,10 @@ const PlantSoilMoistureLevel = ({ extractedSoils, soilData }) => {
             chartInstance.current = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: soilData.map(item => new Date(item.timestamp).toLocaleDateString()),
+                    labels: stateData.map(item => new Date(item.timestamp).toLocaleDateString()),
                     datasets: [{
-                        label: 'Plant Soil Level',
-                        data: extractedSoils,
+                        label: 'Plant State ',
+                        data: extractedStates,
                         borderColor: 'rgba(75, 192, 192, 1)', // Color of the line
                         borderWidth: 2,
                         borderDash: [5, 5]
@@ -33,9 +33,9 @@ const PlantSoilMoistureLevel = ({ extractedSoils, soilData }) => {
                         y: {
                             title: {
                                 display: true,
-                                text: 'Soil Level',
+                                text: 'Plant State',
                             },
-                            beginAtZero: true, // Start the y-axis at zero
+                            beginAtZero: false, // Start the y-axis at zero
                         }
                     },
                     plugins: {
@@ -58,12 +58,12 @@ const PlantSoilMoistureLevel = ({ extractedSoils, soilData }) => {
                 chartInstance.current = null;
             }
         };
-    }, [extractedSoils, soilData]);
+    }, [extractedStates, stateData]);
 
     return (
         <Card>
             <Card.Header>
-                <Card.Title as="h5"><i className="fas fa-chart-line text-success mr-2"></i> Plant - Soil Moisture Level</Card.Title>
+                <Card.Title as="h5"><i className="fas fa-chart-line text-success mr-2"></i> Plant State</Card.Title>
             </Card.Header>
             <Card.Body>
                 <canvas ref={chartRef} />
@@ -72,5 +72,5 @@ const PlantSoilMoistureLevel = ({ extractedSoils, soilData }) => {
     );
 };
 
-export default PlantSoilMoistureLevel;
+export default Plantstate;
 

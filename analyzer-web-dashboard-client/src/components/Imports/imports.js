@@ -14,6 +14,7 @@ import SideBar from "../../components/SideBar/SideBar";
 import PlantPicker from "../../components/PlantPicker/PlantPicker";
 import HealthIndicator from "../../components/HealthIndicator/HealthIndicator";
 import TopNavigation from "../TopNavigation/TopNavigation";
+import PlantImages from "../../components/PlantImages/PlantImages";
 
 export {
     React,
@@ -37,5 +38,6 @@ export {
     SideBar,
     PlantPicker,
     HealthIndicator,
-    TopNavigation
+    TopNavigation,
+    PlantImages
 };
