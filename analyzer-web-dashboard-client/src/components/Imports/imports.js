@@ -2,6 +2,7 @@
 import React from "react";
 import { Badge, Button, Card, Table, Container, Row, Col, Form, OverlayTrigger, Tooltip } from "react-bootstrap";
 import {Nav, Navbar, NavDropdown} from "react-bootstrap";
+import 'react-datepicker/dist/react-datepicker.css';
 import '../../assets/css/Dashboard.css';
 
 // Import all your components here

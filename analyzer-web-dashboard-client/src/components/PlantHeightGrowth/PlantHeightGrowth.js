@@ -15,9 +15,9 @@ const PlantHeightGrowth = ({ extractedHeights, heightData }) => {
                 data: {
                     labels: heightData.map(item => new Date(item.timestamp).toLocaleDateString()),
                     datasets: [{
-                        label: 'Plant Height (cm)',
+                        label: 'Plant Height',
                         data: extractedHeights,
-                        borderColor: 'rgba(75, 192, 192, 1)', // Color of the line
+                        borderColor: 'rgba(220, 53, 69, 1)', // Color of the line
                         borderWidth: 2,
                         borderDash: [5, 5]
                     }]
@@ -61,9 +61,9 @@ const PlantHeightGrowth = ({ extractedHeights, heightData }) => {
     }, [extractedHeights, heightData]);
 
     return (
-        <Card>
-            <Card.Header>
-                <Card.Title as="h5"><i className="fas fa-chart-line text-success mr-2"></i> Plant Growth - Height</Card.Title>
+        <Card className="mb-4">
+            <Card.Header className="bg-danger">
+                <Card.Title as="h5"><i className="fas fa-chart-line mr-2"></i><span className='text-white'>Plant Growth - Height</span></Card.Title>
             </Card.Header>
             <Card.Body>
                 <canvas ref={chartRef} />

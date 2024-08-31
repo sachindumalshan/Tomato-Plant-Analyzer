@@ -15,9 +15,9 @@ const PlantAreaGrowth = ({ extractedAreas, areaData }) => {
                 data: {
                     labels: areaData.map(item => new Date(item.timestamp).toLocaleDateString()),
                     datasets: [{
-                        label: 'Plant Area (cm*cm)',
+                        label: 'Plant Leaves Area',
                         data: extractedAreas,
-                        borderColor: 'rgba(75, 192, 192, 1)', // Color of the line
+                        borderColor: 'rgba(255, 193, 7, 1)', // Color of the line
                         borderWidth: 2,
                         borderDash: [5, 5]
                     }]
@@ -33,7 +33,7 @@ const PlantAreaGrowth = ({ extractedAreas, areaData }) => {
                         y: {
                             title: {
                                 display: true,
-                                text: 'Plant Area (cm*cm)',
+                                text: 'Plant Leaves Area (cm*cm)',
                             },
                             beginAtZero: false, // Start the y-axis at zero
                         }
@@ -61,9 +61,9 @@ const PlantAreaGrowth = ({ extractedAreas, areaData }) => {
     }, [extractedAreas, areaData]);
 
     return (
-        <Card>
-            <Card.Header>
-                <Card.Title as="h5"><i className="fas fa-chart-line text-success mr-2"></i> Plant Growth - Area</Card.Title>
+        <Card className="mb-4">
+            <Card.Header className="bg-warning">
+                <Card.Title as="h5"><i className="fas fa-chart-line text-success mr-2"></i> Plant Growth - Leaves Area</Card.Title>
             </Card.Header>
             <Card.Body>
                 <canvas ref={chartRef} />

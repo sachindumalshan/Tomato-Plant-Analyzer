@@ -17,7 +17,7 @@ const PlantSoilMoistureLevel = ({ extractedSoils, soilData }) => {
                     datasets: [{
                         label: 'Plant Soil Level',
                         data: extractedSoils,
-                        borderColor: 'rgba(75, 192, 192, 1)', // Color of the line
+                        borderColor: 'rgba(13, 202, 240, 1)', // Color of the line
                         borderWidth: 2,
                         borderDash: [5, 5]
                     }]
@@ -61,8 +61,8 @@ const PlantSoilMoistureLevel = ({ extractedSoils, soilData }) => {
     }, [extractedSoils, soilData]);
 
     return (
-        <Card>
-            <Card.Header>
+        <Card className="mb-4">
+            <Card.Header className="bg-info">
                 <Card.Title as="h5"><i className="fas fa-chart-line text-success mr-2"></i> Plant - Soil Moisture Level</Card.Title>
             </Card.Header>
             <Card.Body>

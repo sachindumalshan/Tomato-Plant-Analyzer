@@ -26,7 +26,7 @@ import {
 import axios from 'axios';
 import {Spinner, Alert } from 'react-bootstrap';
 
-const PlantOne = () => {
+const PlantNine = () => {
   const [heightData, setHeightData] = useState([]);
   const [areaData, setAreaData] = useState([]);
   const [statusData, setStatusData] = useState([]);
@@ -48,11 +48,11 @@ const PlantOne = () => {
         const imagesResponse = await axios.get('http://localhost:5000/api/images');
 
         // Filter data to include only entries that start with 'P1'
-        const filteredHeightData = heightResponse.data.filter(item => item.data.startsWith('P1|Height:'));
-        const filteredAreaData = areaResponse.data.filter(item => item.data.startsWith('P1|Area:'));
-        const filteredStatusData = statusResponse.data.filter(item => item.data.startsWith('P1|Status:'));
-        const filteredSoilData = soilResponse.data.filter(item => item.data.startsWith('P1|Soil:'));
-        const filteredImageData = imagesResponse.data.filter(item => item.filename.startsWith('image_1.jpg'));
+        const filteredHeightData = heightResponse.data.filter(item => item.data.startsWith('P9|Height:'));
+        const filteredAreaData = areaResponse.data.filter(item => item.data.startsWith('P9|Area:'));
+        const filteredStatusData = statusResponse.data.filter(item => item.data.startsWith('P9|Status:'));
+        const filteredSoilData = soilResponse.data.filter(item => item.data.startsWith('P9|Soil:'));
+        const filteredImageData = imagesResponse.data.filter(item => item.filename.startsWith('image_9.jpg'));
 
         setHeightData(filteredHeightData);
         setAreaData(filteredAreaData);
@@ -110,7 +110,7 @@ const PlantOne = () => {
               <Col md="1"></Col>
               <Col md="10">
 
-                <h1>Plant One Details</h1>
+                <h1>Plant Nine Details</h1>
                 <br></br>
                 <Card className="mb-4">
                   <Card.Header className="bg-success">
@@ -221,4 +221,4 @@ const PlantOne = () => {
   );
 };
 
-export default PlantOne;
+export default PlantNine;

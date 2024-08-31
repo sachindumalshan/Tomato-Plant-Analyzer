@@ -32,6 +32,12 @@ const areaSchema = new mongoose.Schema({
 });
 const Area = mongoose.model('Area', areaSchema, 'plant_area');
 
+const statusSchema = new mongoose.Schema({
+  line: String,
+  timestamp: Date,
+});
+const Status = mongoose.model('Status', statusSchema, 'plant_status');
+
 const soilSchema = new mongoose.Schema({
   line: String,
   timestamp: Date,
@@ -65,6 +71,15 @@ app.get('/api/area', async (req, res) => {
   try {
     const areas = await Area.find().sort({ timestamp: -1 });
     res.json(areas);
+  } catch (error) {
+    res.status(500).send('Error retrieving area data');
+  }
+});
+
+app.get('/api/status', async (req, res) => {
+  try {
+    const statuss = await Status.find().sort({ timestamp: -1 });
+    res.json(statuss);
   } catch (error) {
     res.status(500).send('Error retrieving area data');
   }
