@@ -63,7 +63,7 @@ const PlantSoilMoistureLevel = ({ extractedSoils, soilData }) => {
     return (
         <Card className="mb-4">
             <Card.Header className="bg-info">
-                <Card.Title as="h5"><i className="fas fa-chart-line text-success mr-2"></i> Plant - Soil Moisture Level</Card.Title>
+                <Card.Title as="h5">Plant - Soil Moisture Level</Card.Title>
             </Card.Header>
             <Card.Body>
                 <canvas ref={chartRef} />

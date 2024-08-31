@@ -63,7 +63,7 @@ const PlantAreaGrowth = ({ extractedAreas, areaData }) => {
     return (
         <Card className="mb-4">
             <Card.Header className="bg-warning">
-                <Card.Title as="h5"><i className="fas fa-chart-line text-success mr-2"></i> Plant Growth - Leaves Area</Card.Title>
+                <Card.Title as="h5"> Plant Growth - Leaves Area</Card.Title>
             </Card.Header>
             <Card.Body>
                 <canvas ref={chartRef} />

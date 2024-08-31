@@ -63,7 +63,7 @@ const PlantHeightGrowth = ({ extractedHeights, heightData }) => {
     return (
         <Card className="mb-4">
             <Card.Header className="bg-danger">
-                <Card.Title as="h5"><i className="fas fa-chart-line mr-2"></i><span className='text-white'>Plant Growth - Height</span></Card.Title>
+                <Card.Title as="h5"><span className='text-white'>Plant Growth - Height</span></Card.Title>
             </Card.Header>
             <Card.Body>
                 <canvas ref={chartRef} />

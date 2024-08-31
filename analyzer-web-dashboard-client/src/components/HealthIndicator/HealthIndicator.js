@@ -5,14 +5,19 @@ import '../../assets/css/Dashboard.css';
 function HealthIndicator() {
     return (
         <>
-            <Card Style={"height:551px;"}>
+            <Card Style={"margin-top:5%;height:550px;"}>
                 <Card.Header>
-                    <Card.Title as="h4"><i className="fas fa-laptop-medical text-danger mr-3"></i> Plant
-                        Health</Card.Title>
+                    <Card.Title as="h4">Plant Health</Card.Title>
+                    <Col className="md-6 pt-3">
+                        <i className="bi bi-square-fill text-success mx-2"></i> Healthy
+                        <i className="bi bi-square-fill text-muted mx-2"></i> Early Blight
+                        <i className="bi bi-square-fill text-danger mx-2"></i> Powder Mildew
+                        <i className="bi bi-square-fill text-warning mx-2"></i> Yellow Leaf Curl Virus
+                    </Col>
                 </Card.Header>
                 <Card.Body>
                     <Row>
-                        <Col md="6">
+                        <Col>
                             <Table className="table-hover table-bordered text-center mt-2">
                                 <thead>
                                 <tr>
@@ -22,92 +27,44 @@ function HealthIndicator() {
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td>P - 01</td>
+                                    <td>P - 1</td>
                                     <td><i class="bi bi-square-fill text-success"></i></td>
                                 </tr>
                                 <tr>
-                                    <td>P - 02</td>
+                                    <td>P - 2</td>
                                     <td><i className="bi bi-square-fill text-success"></i></td>
                                 </tr>
                                 <tr>
-                                    <td>P - 03</td>
+                                    <td>P - 3</td>
                                     <td><i className="bi bi-square-fill text-info"></i></td>
                                 </tr>
                                 <tr>
-                                    <td>P - 04</td>
+                                    <td>P - 4</td>
                                     <td><i className="bi bi-square-fill text-danger"></i></td>
                                 </tr>
                                 <tr>
-                                    <td>P - 05</td>
+                                    <td>P - 5</td>
                                     <td><i className="bi bi-square-fill text-success"></i></td>
                                 </tr>
                                 <tr>
-                                    <td>P - 06</td>
+                                    <td>P - 6</td>
                                     <td><i className="bi bi-square-fill text-success"></i></td>
                                 </tr>
                                 <tr>
-                                    <td>P - 07</td>
+                                    <td>P - 7</td>
                                     <td><i className="bi bi-square-fill text-warning"></i></td>
                                 </tr>
                                 <tr>
-                                    <td>P - 08</td>
+                                    <td>P - 8</td>
+                                    <td><i className="bi bi-square-fill text-success"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>P - 9</td>
                                     <td><i className="bi bi-square-fill text-success"></i></td>
                                 </tr>
                                 </tbody>
                             </Table>
-                        </Col>
-                        <Col md="6">
-                            <Table className="table-hover table-bordered text-center mt-2">
-                                <thead>
-                                <tr>
-                                    <th className="bg-light">Plant ID</th>
-                                    <th className="bg-light">Status</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>P - 09</td>
-                                    <td><i className="bi bi-square-fill text-success"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>P - 10</td>
-                                    <td><i className="bi bi-square-fill text-warning"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>P - 11</td>
-                                    <td><i className="bi bi-square-fill text-success"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>P - 12</td>
-                                    <td><i className="bi bi-square-fill text-success"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>P - 13</td>
-                                    <td><i className="bi bi-square-fill text-danger"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>P - 14</td>
-                                    <td><i className="bi bi-square-fill text-warning"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>P - 15</td>
-                                    <td><i className="bi bi-square-fill text-success"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>P - 16</td>
-                                    <td><i className="bi bi-square-fill text-success"></i></td>
-                                </tr>
-                                </tbody>
-                            </Table>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col className="md-6 pt-3">
-                            <i className="bi bi-square-fill text-success"></i> Optimal
-                            <i className="bi bi-square-fill text-info mx-2"></i> Healthy
-                            <i className="bi bi-square-fill text-warning mx-2"></i> Stressed
-                            <i className="bi bi-square-fill text-danger mx-2"></i> Critical
-                        </Col>
+                        </Col>                        
                     </Row>
                 </Card.Body>
             </Card>

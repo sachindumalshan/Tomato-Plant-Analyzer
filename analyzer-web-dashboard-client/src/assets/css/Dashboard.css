@@ -14,8 +14,11 @@
 }
 
 .plant-button{
-    width: 100px;
-    height: 100px;
+    width: 180px;
+    height: 196px;
+    background-color: green;
+    border: 1px solid green;
+    font-size: 2.2rem;
 }
 
 .menu:hover{
