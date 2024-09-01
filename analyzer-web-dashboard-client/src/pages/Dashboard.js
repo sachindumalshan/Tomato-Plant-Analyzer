@@ -38,33 +38,14 @@ function Dashboard() {
                             <TopNavigation/>
                             <hr className="mt-2"/>
                         </Row>
-                        <Row className="my-2">
-                            <StateIndicator/>
-                        </Row>
-                        <Row className="my-5">
-                            <Col md="4">
-                                <PlantPicker/>
-                            </Col>
-
-                            <Col md="8">
+                        <Row className="my-2 justify-content-around">                            
+                            <Col md="6">
+                                <StateIndicator/>
                                 <HealthIndicator/>
                             </Col>
-                        </Row>
-                        <Row className="mt-5 mb-4">
-                            <Col md="6">
-                                <PlantAreaGrowth/>
-                            </Col>
-                            <Col md="6">
-                                <PlantHeightGrowth/>
-                            </Col>
-                        </Row>
-                        <Row className="my-4">
-                            <Col md="6">
-                                <PlantColorLevel/>
-                            </Col>
-                            <Col md="6">
-                                <PlantSoilMoistureLevel/>
-                            </Col>
+                            <Col md="5">
+                                <PlantPicker/>
+                            </Col>                                                    
                         </Row>
                     </Col>
                 </Row>

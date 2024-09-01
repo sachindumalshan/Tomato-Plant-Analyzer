@@ -16,7 +16,7 @@ import {
 import axios from 'axios';
 import {Alert} from 'react-bootstrap';
 
-const PlantOne = () => {
+const PlantSix = () => {
   const [heightData, setHeightData] = useState([]);
   const [areaData, setAreaData] = useState([]);
   const [statusData, setStatusData] = useState([]);
@@ -38,11 +38,11 @@ const PlantOne = () => {
         const imagesResponse = await axios.get('http://localhost:5000/api/images');
 
         // Filter data to include only entries that start with 'P1'
-        const filteredHeightData = heightResponse.data.filter(item => item.data.startsWith('P1|Height:'));
-        const filteredAreaData = areaResponse.data.filter(item => item.data.startsWith('P1|Area:'));
-        const filteredStatusData = statusResponse.data.filter(item => item.data.startsWith('P1|Status:'));
-        const filteredSoilData = soilResponse.data.filter(item => item.data.startsWith('P1|Soil:'));
-        const filteredImageData = imagesResponse.data.filter(item => item.filename.startsWith('image_1.jpg'));
+        const filteredHeightData = heightResponse.data.filter(item => item.data.startsWith('P6|Height:'));
+        const filteredAreaData = areaResponse.data.filter(item => item.data.startsWith('P6|Area:'));
+        const filteredStatusData = statusResponse.data.filter(item => item.data.startsWith('P6|Status:'));
+        const filteredSoilData = soilResponse.data.filter(item => item.data.startsWith('P6|Soil:'));
+        const filteredImageData = imagesResponse.data.filter(item => item.filename.startsWith('image_6.jpg'));
 
         setHeightData(filteredHeightData);
         setAreaData(filteredAreaData);
@@ -94,7 +94,7 @@ const PlantOne = () => {
               <Col md="1"></Col>
               <Col md="10">
 
-                <h1>Plant One Details</h1>
+                <h1>Plant Six Details</h1>
                 <br></br>
                 <Card className="mb-4">
                   <Card.Header className="bg-success">
@@ -160,7 +160,7 @@ const PlantOne = () => {
                 <Table striped bordered hover>
                   <thead></thead>
                   <tbody>
-                    {heightData.map((item) => {                      
+                    {heightData.map((item) => {
                       const heightValue = parseFloat(item.data.split('Height:')[1]);
                       extractedHeights.push(heightValue); // Collect the height values
                     })}
@@ -205,4 +205,4 @@ const PlantOne = () => {
   );
 };
 
-export default PlantOne;
+export default PlantSix;

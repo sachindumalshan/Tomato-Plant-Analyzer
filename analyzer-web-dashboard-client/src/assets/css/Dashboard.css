@@ -14,8 +14,16 @@
 }
 
 .plant-button{
-    width: 100px;
-    height: 100px;
+    width: 180px;
+    height: 196px;
+    /* background-color: rgb(6, 107, 6); */
+    background-color: rgb(6, 107, 6);
+    border: 1px solid rgb(255, 255, 228);
+    font-size: 2.2rem;
+}
+
+.plant-button:hover{
+    background-color: rgb(26, 172, 26);
 }
 
 .menu:hover{

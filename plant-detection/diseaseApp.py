@@ -2,9 +2,11 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model
 import numpy as np 
 import os
+from pymongo import MongoClient
+from datetime import datetime, timezone
 
 # Load the pre-trained model
-model = load_model('C:\\Users\\sachm\\Desktop\\Tomato-Plant-Analyzer\\plant-detection\\Image_classify.keras')
+model = load_model('/home/plant-detection/Image_classify.keras')
 
 # Define the categories
 data_category = [
@@ -25,6 +27,19 @@ images_directory = 'images'
 images_files = []
 plant_status = []
 status_accuracy = []
+
+# MongoDB connection
+connection_string = "mongodb+srv://sachindumalshan:Malshan123@iotcluster.6rmyakh.mongodb.net/?retryWrites=true&w=majority"
+client = MongoClient(connection_string)
+db = client['sensor_data']
+
+try:
+    db.create_collection("plant_status", timeseries={"timeField": "timestamp"})
+except Exception as e:
+    print(f"Collection already exists or an error occurred: {e}")
+
+collection6 = db['plant_status']
+status_file_path = '/home/plant-detection/ImagesAnlz.txt'
 
 # Process each image in the directory
 for filename in os.listdir(images_directory):
@@ -57,9 +72,44 @@ for filename in os.listdir(images_directory):
         plant_status.append(status)
         status_accuracy.append(f"{np.max(score) * 100:.2f}%")
 
-# Print the formatted output and write to file
+# Print the formatted output, write to file, and upload to MongoDB
 with open("ImagesAnlz.txt", "w") as file:
     for i in range(len(images_files)):
         output = f"P{i+1}|Status:{plant_status[i]}|{status_accuracy[i]}"
         print(output)
         file.write(output + "\n")
+        
+
+# Clear the images from the folder after processing
+for filename in images_files:
+    filepath = os.path.join(images_directory, filename)
+    os.remove(filepath)
+    print(f"Deleted {filename} from {images_directory}")
+
+print("Data upload and cleanup completed.")
+
+# Function to read data from a file and insert into a specified time series collection
+def insert_data(file_path, collection):
+    with open(file_path, 'r') as file:
+        lines = file.readlines()
+    
+    if not lines:  # Check if the file is empty
+        lines = [default_values[file_path]]  # Use the predefined default value
+    
+    data = [{
+        'timestamp': datetime.now(timezone.utc),  # Ensure timestamp is in UTC
+        'data': line.strip()
+    } for line in lines]  # Prepare data for insertion
+    
+    collection.insert_many(data)
+    print(f"Data from {file_path} inserted successfully!")
+    clean_file(file_path)  # Clean the file after uploading
+
+
+# Function to clean the content of the file after uploading the data
+def clean_file(file_path):
+    open(file_path, 'w').close()
+    print(f"File {file_path} cleaned successfully!")
+
+# Insert data from each file into the respective time series collection
+insert_data(status_file_path, collection6)
