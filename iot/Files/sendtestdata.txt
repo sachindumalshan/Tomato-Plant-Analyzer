@@ -1,0 +1,69 @@
+from pymongo import MongoClient
+import os
+import base64
+
+# Replace <password> with your MongoDB Atlas password
+connection_string = "mongodb+srv://sachindumalshan:Malshan123@iotcluster.6rmyakh.mongodb.net/?retryWrites=true&w=majority"
+
+# Establish a connection to the database
+client = MongoClient(connection_string)
+
+# Select your database and collections
+db = client['sensor_data']  # Replace with your actual database name
+collection1 = db['plant_height']  # Collection for plant height data
+collection2 = db['plant_area']    # Collection for plant area data
+collection3 = db['plant_soil']    # Collection for plant soil data
+collection4 = db['plant_temp']    # Collection for plant temperature data
+collection5 = db['plant_images']  # Collection for plant images
+
+# Define file paths
+height_file_path = '/home/raspberry/Desktop/iot/capture_data/height.txt'  # Path to plant height data
+area_file_path = '/home/raspberry/Desktop/iot/capture_data/area.txt'      # Path to plant area data
+soil_file_path = '/home/raspberry/Desktop/iot/capture_data/soil.txt'      # Path to plant soil data
+temp_file_path = '/home/raspberry/Desktop/iot/capture_data/temp.txt' # Path to plant temperature data
+image_folder_path = '/home/raspberry/Desktop/iot/capture_data/leaves_images'     # Path to the folder containing images
+
+# Predefined default values for empty files
+default_values = {
+    height_file_path: "Height - 0",
+    area_file_path: "Area - 0",
+    soil_file_path: "Soil Moisture - 0",
+    temp_file_path: "Temperature - 34 | Humidity - 23"
+}
+
+# Function to read data from a file and insert into a specified collection
+def insert_data(file_path, collection):
+    with open(file_path, 'r') as file:
+        lines = file.readlines()
+    
+    if not lines:  # Check if the file is empty
+        lines = [default_values[file_path]]  # Use the predefined default value
+    
+    data = [{'line': line.strip()} for line in lines]  # Prepare data for insertion
+    collection.insert_many(data)
+    print(f"Data from {file_path} inserted successfully!")
+    clean_file(file_path)  # Clean the file after uploading
+
+# Function to upload images to MongoDB
+def upload_images(folder_path, collection):
+    for filename in os.listdir(folder_path):
+        if filename.endswith(('.png', '.jpg', '.jpeg', '.bmp', '.gif')):  # Check for image file extensions
+            file_path = os.path.join(folder_path, filename)
+            with open(file_path, 'rb') as image_file:
+                encoded_string = base64.b64encode(image_file.read()).decode('utf-8')  # Encode image as base64
+                collection.insert_one({'filename': filename, 'image_data': encoded_string})
+    print("Images uploaded successfully!")
+
+# Function to clean the content of the file after uploading the data
+def clean_file(file_path):
+    open(file_path, 'w').close()
+    print(f"File {file_path} cleaned successfully!")
+
+# Insert data from each file into the respective collection
+insert_data(height_file_path, collection1)
+insert_data(area_file_path, collection2)
+insert_data(soil_file_path, collection3)
+insert_data(temp_file_path, collection4)
+
+# Upload images to the plant_images collection
+upload_images(image_folder_path, collection5)

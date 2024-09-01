@@ -97,7 +97,7 @@ def insert_data(file_path, collection):
         lines = [default_values[file_path]]  # Use the predefined default value
     
     data = [{
-        'timestamp': datetime.now(timezone.utc),  # Ensure timestamp is in UTC
+        'timestamp': datetime.now(),  # Ensure timestamp is in UTC
         'data': line.strip()
     } for line in lines]  # Prepare data for insertion
     
