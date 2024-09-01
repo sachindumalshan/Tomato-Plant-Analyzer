@@ -1,30 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Badge,
-  Button,
   Card,
-  Navbar,
-  Nav,
   Table,
   Container,
   Row,
   Col,
-  Form,
-  OverlayTrigger,
-  Tooltip,
   PlantAreaGrowth,
   PlantHeightGrowth,
-  PlantColorLevel,
   PlantSoilMoistureLevel,
-  StateIndicator,
   SideBar,
-  PlantPicker,
-  HealthIndicator,
   TopNavigation,
   PlantImages,
+  LoadingSpinner
 } from '../components/Imports/imports';
 import axios from 'axios';
-import {Spinner, Alert } from 'react-bootstrap';
+import {Alert} from 'react-bootstrap';
 
 const PlantFive = () => {
   const [heightData, setHeightData] = useState([]);
@@ -70,13 +60,7 @@ const PlantFive = () => {
   }, []);
 
   if (loading) {
-    return (
-      <Container>
-        <Spinner animation="border" role="status">
-          <span className="sr-only">Loading...</span>
-        </Spinner>
-      </Container>
-    );
+    return <LoadingSpinner />;
   }
 
   if (error) {

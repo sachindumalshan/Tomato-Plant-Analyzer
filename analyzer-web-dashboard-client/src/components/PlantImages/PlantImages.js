@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Table } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 
 const PlantImages = ({ imagesData }) => {
   // State to track the selected image
@@ -35,8 +35,8 @@ const PlantImages = ({ imagesData }) => {
             </thead>
             <tbody>
                 {imagesData.map((item) => {
-                    const formattedDate = new Date(item.timestamp).toLocaleString(); // Convert timestamp to a localized string
-                    const dateOnly = formattedDate.split(',')[0]; // Split the string by ',' and take the second part (time only)
+                    const formattedDate = new Date(item.timestamp).toLocaleString();
+                    const dateOnly = formattedDate.split(',')[0];
 
                     return (
                     <tr key={item._id} onClick={() => handleImageClick(item)} style={{ cursor: 'pointer' }}>

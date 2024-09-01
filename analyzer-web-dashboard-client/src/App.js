@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import PlantDetail from "./pages/PlantDetail";
 import User from "./pages/User";
 import AboutProject from "./pages/AboutProject";
-import SinglePlant from "./pages/SinglePlant";
 import PlantOne from "./pages/plantone";
 import PlantTwo from "./pages/planttwo";
 import PlantThree from "./pages/plantthree";
@@ -25,7 +24,6 @@ function App() {
               <Route path="/plantdetail" element={<PlantDetail/>} />
               <Route path="/user" element={<User/>} />
               <Route path="/aboutproject" element={<AboutProject/>} />
-              <Route path="/sp" element={<SinglePlant/>} />
               <Route path='/plantone' element={<PlantOne/>}/>
               <Route path='/planttwo' element={<PlantTwo/>}/>
               <Route path='/plantthree' element={<PlantThree/>}/>

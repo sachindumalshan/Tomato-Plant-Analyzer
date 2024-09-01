@@ -7,20 +7,22 @@ import {
     SideBar,
     TopNavigation
 } from '../components/Imports/imports';
+import UserOne from '../assets/img/sachindu_malshan.jpg';
+import UserTwo from '../assets/img/denuwan_yashodana.jpg';
 
 function User() {
     const users = [
         {
             name: "Sachindu Malshan",
             email: "cst19035@std.uwu.ac.lk",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            image: "https://via.placeholder.com/150" // Replace with actual image URL
+            description: "Contribution:",
+            image: UserOne
         },
         {
-            name: "Denuwan Yasodhana",
+            name: "Denuwan Yashodana",
             email: "cst19031@std.uwu.ac.lk",
-            description: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            image: "https://via.placeholder.com/150" // Replace with actual image URL
+            description: "Contribution:",
+            image: UserTwo
         }
     ];
 
@@ -38,16 +40,23 @@ function User() {
                             <TopNavigation />
                             <hr className="mt-2" />
                         </Row>
-                        <Row className="justify-content-around">
+                        <Row className="my-4">
                             {users.map((user, index) => (
-                                <Col lg="4" md="6" className="mb-4" key={index}>
-                                    <Card className="h-100 text-center">
-                                        <Card.Img variant="top" src={user.image} alt={user.name} />
-                                        <Card.Body>
-                                            <Card.Title>{user.name}</Card.Title>
-                                            <Card.Subtitle className="mb-2 text-muted">{user.email}</Card.Subtitle>
-                                            <Card.Text>{user.description}</Card.Text>
-                                        </Card.Body>
+                                <Col lg="7" key={index} className="mb-4">
+                                    <Card className="h-100 mx-4">
+                                        <Row className="g-0">
+                                            <Col md="4">
+                                                <Card.Img variant="top" src={user.image} alt={user.name} style={{ width: '100%', height: 'auto' }} />
+                                            </Col>
+                                            <Col md="8">
+                                                <Card.Body className="d-flex flex-column justify-content-center">
+                                                    <Card.Title>{user.name}</Card.Title>
+                                                    <Card.Subtitle className="mb-2 text-muted">{user.email}</Card.Subtitle>
+                                                    <hr></hr>
+                                                    <Card.Text>{user.description}</Card.Text>
+                                                </Card.Body>
+                                            </Col>
+                                        </Row>
                                     </Card>
                                 </Col>
                             ))}

@@ -3,8 +3,8 @@ import { Card } from 'react-bootstrap';
 import { Chart } from 'chart.js/auto';
 
 const PlantAreaGrowth = ({ extractedAreas, areaData }) => {
-    const chartRef = useRef(null); // Reference to the canvas element
-    const chartInstance = useRef(null); // Reference to the chart instance
+    const chartRef = useRef(null); 
+    const chartInstance = useRef(null);
 
     useEffect(() => {
         // Create the chart when the component mounts
@@ -17,7 +17,7 @@ const PlantAreaGrowth = ({ extractedAreas, areaData }) => {
                     datasets: [{
                         label: 'Plant Leaves Area',
                         data: extractedAreas,
-                        borderColor: 'rgba(255, 193, 7, 1)', // Color of the line
+                        borderColor: 'rgba(255, 193, 7, 1)',
                         borderWidth: 2,
                         borderDash: [5, 5]
                     }]
@@ -35,7 +35,7 @@ const PlantAreaGrowth = ({ extractedAreas, areaData }) => {
                                 display: true,
                                 text: 'Plant Leaves Area (cm*cm)',
                             },
-                            beginAtZero: false, // Start the y-axis at zero
+                            beginAtZero: false,
                         }
                     },
                     plugins: {
