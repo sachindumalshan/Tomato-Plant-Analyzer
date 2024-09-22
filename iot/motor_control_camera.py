@@ -76,10 +76,16 @@ def rotate_motor(motor_pins, steps, delay, direction='forward'):
 
 # Convert coordinates to steps (assuming 1 unit = 8000 steps for simplicity)
 def coordinates_to_steps(x, y):
-    return x * 8000, y * 7800
+    return x * 8000, y * 6500
 
-def rotate_motor_reverse(motor_pins, delay):
+def rotate_motor_reversex(motor_pins, delay):
     for _ in range(16000):  # Adjust the number of steps for one full rotation if needed
+        for step in reversed(range(8)):
+            step_motor(motor_pins, step)
+            time.sleep(delay)
+            
+def rotate_motor_reversey(motor_pins, delay):
+    for _ in range(13000):  # Adjust the number of steps for one full rotation if needed
         for step in reversed(range(8)):
             step_motor(motor_pins, step)
             time.sleep(delay)
@@ -267,11 +273,12 @@ try:
             #print(f"area value : {newarea}")
             with open(area_file, 'a') as file:
                 file.write(f"P{i}|Area:{newarea}\n")
-            print(f"Area saved to file: {newarea} cm*cm")
+            print(f"Area saved to file: {newarea} px*px")
             #capture_image(image_path)
             #print(f"Image saved to: {image_path}")
             distance = measure_distance()
-            height = distance  # x-distances
+            distance = round(distance, 2)
+            height = round(distance - 16,2)
             with open(height_file, 'a') as file:
                 file.write(f"P{i}|Height:{height}\n")
             print(f"Height saved to file: {height} cm")
@@ -282,9 +289,9 @@ try:
     print("Returning to the starting point (1, 1)")
 
     # Move X-axis back to 1
-    rotate_motor_reverse(motor_pins_x, 0.001)
+    rotate_motor_reversex(motor_pins_x, 0.001)
     # Move Y-axis back to 1
-    rotate_motor_reverse(motor_pins_y, 0.001)
+    rotate_motor_reversey(motor_pins_y, 0.001)
 
     print("Returned to the starting point (1, 1)")
 

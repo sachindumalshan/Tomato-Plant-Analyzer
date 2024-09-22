@@ -17,11 +17,13 @@ def run_sub2():
 # Function to schedule sub1.py to run once a day at a predefined time
 def schedule_sub1():
     # Define the time you want to run sub1.py (24-hour format, e.g., "14:00" for 2 PM)
-    schedule.every().day.at("14:00").do(run_sub1)
+    schedule.every().day.at("20:35").do(run_sub1)
+    print("schedule_sub1 started")
 
 # Function to schedule sub2.py to run every hour
 def schedule_sub2():
     schedule.every(1).hours.do(run_sub2)
+    print("schedule_sub2 started")
 
 # Start the schedule in a separate thread
 def start_scheduler():
