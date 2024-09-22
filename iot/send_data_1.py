@@ -73,9 +73,9 @@ def upload_images(folder_path, collection):
 # Function to upload images to Azure VM
 def upload_to_azure_vm(folder_path):
     # Azure VM details
-    azure_vm_ip = '52.230.96.184'
+    azure_vm_ip = '51.142.8.237'
     azure_vm_username = 'iotresearch'
-    azure_vm_password = 'QCoeeXbZlFCg7zNtkw5hpA'
+    azure_vm_password = 'Tj@y2apLEs87UNe'
 
     # Create an SSH client
     ssh = paramiko.SSHClient()

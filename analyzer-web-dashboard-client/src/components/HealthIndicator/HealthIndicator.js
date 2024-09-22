@@ -50,17 +50,15 @@ function HealthIndicator() {
         fetchPlantStatus();
     }, []);
 
-    const getRiskLevelIndicator = (status, percentage) => {
+    const getRiskLevelIndicator = (status) => {
         if (status.toLowerCase() === "healthy") {
             return <i className="bi bi-circle-fill text-success fs-6 mx-2"></i>;
-        }
-
-        if (percentage >= 70) {
+        }else if (status.toLowerCase() === "early blight") {
             return <i className="bi bi-circle-fill text-danger fs-6 mx-2"></i>;
-        } else if (percentage >= 40) {
+        } else if (status.toLowerCase() === "yellow leaf curl virus") {
             return <i className="bi bi-circle-fill text-warning fs-6 mx-2"></i>;
-        } else {
-            return <i className="bi bi-circle-fill text-info fs-6 mx-2"></i>;
+        } else if (status.toLowerCase() === "powder mildew"){
+            return <i className="bi bi-circle-fill text-primary fs-6 mx-2"></i>;
         }
     };
 
@@ -96,10 +94,10 @@ function HealthIndicator() {
                     <Card.Title as="h4" className="d-flex justify-content-between align-items-center">
                         <span>Plant Health</span>
                         <Col className="d-flex justify-content-end">
-                            <i className="bi bi-circle-fill text-success fs-6 mx-2"></i><span className="fs-6">Normal</span>
-                            <i className="bi bi-circle-fill text-info fs-6 mx-2"></i><span className="fs-6">Low</span>
-                            <i className="bi bi-circle-fill text-warning fs-6 mx-2"></i><span className="fs-6">Medium</span>
-                            <i className="bi bi-circle-fill text-danger fs-6 mx-2"></i><span className="fs-6">High</span>
+                            <i className="bi bi-circle-fill text-success fs-6 mx-2"></i><span className="fs-6">Healthy</span>
+                            <i className="bi bi-circle-fill text-primary fs-6 mx-2"></i><span className="fs-6">Powder Mildew</span>
+                            <i className="bi bi-circle-fill text-warning fs-6 mx-2"></i><span className="fs-6">Yellow Leaf Curl Virus</span>
+                            <i className="bi bi-circle-fill text-danger fs-6 mx-2"></i><span className="fs-6">Early Blight</span>
                         </Col>
                     </Card.Title>
                 </Card.Header>
@@ -111,7 +109,7 @@ function HealthIndicator() {
                                     <tr>
                                         <th className="bg-light">Plant ID</th>
                                         <th className="bg-light">Health Status</th>
-                                        <th className="bg-light">Risk Level</th>
+                                        <th className="bg-light">Indicator</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -119,7 +117,7 @@ function HealthIndicator() {
                                         <tr key={plant.plantId}>
                                             <td>{plant.plantId}</td>
                                             <td>{plant.status}</td>
-                                            <td>{getRiskLevelIndicator(plant.status, plant.percentage)}</td>
+                                            <td>{getRiskLevelIndicator(plant.status)}</td>
                                         </tr>
                                     ))}
                                 </tbody>
